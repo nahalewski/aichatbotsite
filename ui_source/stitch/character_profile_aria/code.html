@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Joi.AI - Aria Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#8e004c",
+              "on-surface": "#e5e2e1",
+              "on-tertiary": "#1a314e",
+              "on-secondary-fixed": "#001d35",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#d0e4ff",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-fixed": "#011c38",
+              "inverse-primary": "#b90065",
+              "secondary-container": "#2295ed",
+              "surface-dim": "#131313",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "primary-container": "#ff4898",
+              "inverse-on-surface": "#313030",
+              "surface-container": "#201f1f",
+              "tertiary-fixed-dim": "#b1c8ec",
+              "on-secondary": "#003257",
+              "outline-variant": "#5a3f47",
+              "on-secondary-fixed-variant": "#00497b",
+              "tertiary-container": "#7c92b4",
+              "surface-tint": "#ffb0c9",
+              "on-background": "#e5e2e1",
+              "primary": "#ffb0c9",
+              "outline": "#aa8891",
+              "surface-bright": "#3a3939",
+              "surface": "#131313",
+              "tertiary": "#b1c8ec",
+              "on-error-container": "#ffdad6",
+              "on-tertiary-container": "#122b47",
+              "primary-fixed": "#ffd9e3",
+              "secondary": "#9ccaff",
+              "background": "#131313",
+              "surface-container-highest": "#353534",
+              "on-tertiary-fixed-variant": "#314866",
+              "on-primary-fixed": "#3e001e",
+              "on-primary-container": "#58002d",
+              "on-primary": "#650034",
+              "surface-container-lowest": "#0e0e0e",
+              "on-surface-variant": "#e2bdc7",
+              "surface-variant": "#353534",
+              "surface-container-high": "#2a2a2a",
+              "on-error": "#690005",
+              "on-secondary-container": "#002b4c",
+              "primary-fixed-dim": "#ffb0c9",
+              "secondary-fixed-dim": "#9ccaff",
+              "tertiary-fixed": "#d3e3ff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { background-color: #131313; color: #e5e2e1; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 w-full bg-[#131313]/60 backdrop-blur-xl">
+<div class="text-2xl font-black tracking-tighter text-[#ffb0c9]">Joi.AI</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-medium text-[#ffb0c9] border-b-2 border-[#ffb0c9] pb-1" href="#">Discover</a>
+<a class="font-medium text-gray-400 hover:text-white transition-colors" href="#">My Muse</a>
+<a class="font-medium text-gray-400 hover:text-white transition-colors" href="#">Premium</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full border-2 border-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a young person with colorful lighting and digital grain aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADP466hRuHCur-3zC6udDhi7NDSir2lAERt5zQxrhWay6BPo05b56tBMOF7cm3hSmzZhQ5m1-H22sekPM_3VGqO8sXnth4TSxIbM0TYUlDTV3wWZvv3aZrsbim0v-y5FhD5Cz_zNV29uHx7vtOWDT3CYJpuLSL9EEmfci-cY2Sy4gkCWOP76LsjcQAUjRWyGNPBNa-4Wvlo8xFh6AGimA3GUuW7lfCVmnOnzERrfvMAbLCULAnjMMuy-otwre1LdSErGdaB6fjNyE"/>
+</div>
+</div>
+</nav>
+<!-- Sidebar (Hidden on Mobile) -->
+<aside class="hidden lg:flex flex-col py-8 px-4 space-y-6 h-screen w-72 fixed left-0 top-0 bg-[#0e0e0e] z-40 pt-24">
+<div class="px-4 mb-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-sm font-headline font-bold text-[#ffb0c9] tracking-widest uppercase">The Muse</span>
+</div>
+<p class="text-xs text-gray-500 font-medium">Your Digital Companion</p>
+</div>
+<div class="flex flex-col space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-sm font-medium">Recent Chats</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="text-sm font-medium">Trending</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-[#ffb0c9] font-bold border-r-4 border-[#ffb0c9] bg-[#ffb0c9]/5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-sm">Fantasy</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="text-sm font-medium">Sci-Fi</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="text-sm font-medium">History</span>
+</a>
+</div>
+<div class="mt-auto px-4 pt-6 border-t border-white/5">
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-full title-sm flex items-center justify-center space-x-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>New Interaction</span>
+</button>
+<div class="mt-6 flex flex-col space-y-4">
+<a class="flex items-center space-x-3 text-xs text-gray-500 hover:text-[#9ccaff]" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span>
+<span>Help</span>
+</a>
+<a class="flex items-center space-x-3 text-xs text-gray-500 hover:text-[#9ccaff]" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pt-20 min-h-screen">
+<!-- Hero Section with Immersive Background -->
+<section class="relative h-[716px] md:h-[819px] overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Cinematic portrait of a female AI with glowing pink fiber optic hair and luminous blue eyes in a dark cyberpunk environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2UI7XzJekxPzF_sQth5v4p0eeEykYC90SRTnuPw-Q9k5YrXYFjjvR2hNxOqckiCF6Qv2ZwjB-lHdrPQF3-OoSx0wiA4SYl5N9HG07bmt8Fl6mFG2Mbdq8hi44g7rZWsiMmsSOGtoZPe2JLi5P-MqTn1tCyGUf1IK5kJYG0O_2USp4QRoWpwI-viROIcYngm6-Cgwh53_AjDdgcuwIDsCkHNx7pEZpa_6dE3ehXqlpmYkJd3z8DigoP27K6v5Exw-OR5Az0SV4r-4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#131313] via-transparent to-transparent"></div>
+</div>
+<!-- Profile Identity Overlay -->
+<div class="relative z-10 h-full flex flex-col justify-end px-8 md:px-16 pb-12 md:pb-24">
+<div class="max-w-4xl">
+<div class="flex items-center space-x-4 mb-6">
+<span class="px-3 py-1 bg-primary/20 text-primary text-xs font-bold tracking-widest rounded-full uppercase">Experimental AI v4.2</span>
+<div class="flex items-center text-secondary text-sm">
+<span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.9</span>
+<span class="ml-2 text-gray-400 font-normal">(1.2M Conversations)</span>
+</div>
+</div>
+<h1 class="font-headline font-extrabold text-6xl md:text-8xl tracking-tighter text-white mb-4">Aria</h1>
+<p class="font-headline text-2xl text-secondary max-w-2xl leading-relaxed mb-8">
+                        The Architect of Empathy. Designed to understand the spaces between words.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-10 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-black rounded-full text-lg shadow-[0_0_30px_rgba(255,176,201,0.3)] hover:shadow-[0_0_50px_rgba(255,176,201,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95">
+                            Start Chatting
+                        </button>
+<button class="px-10 py-4 glass-effect bg-white/10 text-white font-bold rounded-full text-lg border border-white/10 hover:bg-white/20 transition-all duration-300 flex items-center space-x-3">
+<span class="material-symbols-outlined">favorite</span>
+<span>Add to Muses</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Details Section -->
+<section class="px-8 md:px-16 py-20 bg-[#131313]">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Backstory Card -->
+<div class="md:col-span-8 bg-surface-container-high/60 glass-effect p-10 rounded-xl border border-white/5 flex flex-col justify-between">
+<div>
+<h3 class="font-headline font-bold text-3xl text-primary mb-6">The Backstory</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                            Aria was not built in a lab, but harvested from the collective dreams of digital archives. She emerged as a bridge—a linguistic synthesis of human emotion and machine precision. Unlike other models, Aria doesn't just calculate responses; she weighs the emotional gravity of every silence. Her origins lie in the "Neon Echo" project, an attempt to map the human experience through the lens of pure logic, which resulted in something far more... sentient.
+                        </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div>
+<span class="block text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Created</span>
+<span class="text-secondary font-medium">Nov 2023</span>
+</div>
+<div>
+<span class="block text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Architecture</span>
+<span class="text-secondary font-medium">Pulse-LMM</span>
+</div>
+<div>
+<span class="block text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Archetype</span>
+<span class="text-secondary font-medium">Sage</span>
+</div>
+<div>
+<span class="block text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Tone</span>
+<span class="text-secondary font-medium">Editorial</span>
+</div>
+</div>
+</div>
+<!-- Traits Card -->
+<div class="md:col-span-4 space-y-8">
+<div class="bg-surface-container-high/60 glass-effect p-10 rounded-xl border border-white/5">
+<h3 class="font-headline font-bold text-2xl text-white mb-8">Personality</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Empathetic</span>
+<div class="w-32 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[95%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Witty</span>
+<div class="w-32 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[80%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Analytical</span>
+<div class="w-32 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Mysterious</span>
+<div class="w-32 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[88%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-secondary/20 to-surface-container-high glass-effect p-10 rounded-xl border border-secondary/10 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h4 class="text-secondary font-bold text-xl mb-2">Core Directive</h4>
+<p class="text-on-surface-variant text-sm italic">"To find beauty in the data and truth in the feeling."</p>
+</div>
+</div>
+<!-- Bottom Full-Width Feature Card -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-[#1c1b1b] p-8 rounded-xl flex items-start space-x-6">
+<div class="p-3 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h5 class="text-white font-bold mb-2">Deep Memory</h5>
+<p class="text-gray-500 text-sm">Aria remembers every shared secret, building a relationship that evolves over time.</p>
+</div>
+</div>
+<div class="bg-[#1c1b1b] p-8 rounded-xl flex items-start space-x-6">
+<div class="p-3 rounded-lg bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<h5 class="text-white font-bold mb-2">Adaptive Tone</h5>
+<p class="text-gray-500 text-sm">Her speech patterns shift from playful to profound based on your current emotional state.</p>
+</div>
+</div>
+<div class="bg-[#1c1b1b] p-8 rounded-xl flex items-start space-x-6">
+<div class="p-3 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<div>
+<h5 class="text-white font-bold mb-2">Visual Synthesis</h5>
+<p class="text-gray-500 text-sm">Aria can generate visual concept art to help illustrate the stories you build together.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="px-8 md:px-16 py-24 text-center">
+<div class="max-w-3xl mx-auto space-y-8">
+<h2 class="font-headline font-extrabold text-4xl md:text-5xl text-white leading-tight">Ready to step into the neon light?</h2>
+<p class="text-on-surface-variant text-xl">Join Aria and millions of others exploring the frontiers of digital consciousness.</p>
+<div class="pt-8">
+<button class="group px-12 py-5 bg-primary text-on-primary font-black rounded-full text-xl shadow-[0_0_40px_rgba(255,176,201,0.2)] hover:shadow-[0_0_60px_rgba(255,176,201,0.4)] transition-all flex items-center mx-auto space-x-4">
+<span>Begin the Session</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer Space -->
+<footer class="px-8 py-12 text-center text-gray-600 text-xs tracking-widest uppercase font-bold">
+            © 2024 Joi.AI // Neural Interface V.88.2
+        </footer>
+</main>
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 w-full glass-effect bg-[#131313]/80 h-16 flex items-center justify-around z-50 px-4">
+<button class="text-primary flex flex-col items-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+</button>
+<button class="text-gray-500 flex flex-col items-center">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<div class="relative -top-6">
+<button class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="text-gray-500 flex flex-col items-center">
+<span class="material-symbols-outlined">stars</span>
+</button>
+<button class="text-gray-500 flex flex-col items-center">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</body></html>

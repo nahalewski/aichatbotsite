@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Joi.AI | Choose Your Muse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#8e004c",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary": "#1a314e",
+                        "on-secondary-fixed": "#001d35",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#d0e4ff",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#011c38",
+                        "inverse-primary": "#b90065",
+                        "secondary-container": "#2295ed",
+                        "surface-dim": "#131313",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "primary-container": "#ff4898",
+                        "inverse-on-surface": "#313030",
+                        "surface-container": "#201f1f",
+                        "tertiary-fixed-dim": "#b1c8ec",
+                        "on-secondary": "#003257",
+                        "outline-variant": "#5a3f47",
+                        "on-secondary-fixed-variant": "#00497b",
+                        "tertiary-container": "#7c92b4",
+                        "surface-tint": "#ffb0c9",
+                        "on-background": "#e5e2e1",
+                        "primary": "#ffb0c9",
+                        "outline": "#aa8891",
+                        "surface-bright": "#3a3939",
+                        "surface": "#131313",
+                        "tertiary": "#b1c8ec",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#122b47",
+                        "primary-fixed": "#ffd9e3",
+                        "secondary": "#9ccaff",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed-variant": "#314866",
+                        "on-primary-fixed": "#3e001e",
+                        "on-primary-container": "#58002d",
+                        "on-primary": "#650034",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#e2bdc7",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#002b4c",
+                        "primary-fixed-dim": "#ffb0c9",
+                        "secondary-fixed-dim": "#9ccaff",
+                        "tertiary-fixed": "#d3e3ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(42, 42, 42, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(255, 176, 201, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-[#ffb0c9]">Joi.AI</span>
+<div class="hidden md:flex gap-8">
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Discover</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">My Muse</a>
+<a class="text-[#ffb0c9] border-b-2 border-[#ffb0c9] pb-1" href="#">Premium</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">settings</button>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="high-fashion portrait of a woman with ethereal lighting and soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzqrqDeQ7OOruwCWAJov2IHgSAr9wG-29X4p_Ud9Vvcfwa2B3iwD7FAjsN5nwVBCB6x2khSPSUd6FPgEPUX_O44ql9HCEO_aQ3z1_3sc0QGLxWXguxNZRbc8HZyDqjWt03-mdpIhDrPoW9VoDYnAUStR1m4YjVnCxPcTQtIGM3b_mJ1QOyLez27wDy64DHXkfqjDk0WRY3wWOhurVTD4dBOmIgohP1tTByQqjf55qiyDnuyvhUKmR9PhW3-jKoH4e50YdAOOhqofA"/>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="text-center mb-24">
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter mb-6">
+                Elevate <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Your Connection</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                Choose the perfect tier for your digital companionship. From casual interaction to deep, personalized evolution.
+            </p>
+</section>
+<!-- Pricing Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+<!-- Free Plan -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col h-full hover:bg-surface-container transition-all duration-300">
+<div class="mb-8">
+<h3 class="font-headline text-xl font-bold mb-2">Free</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold">$0</span>
+<span class="text-on-surface-variant">/mo</span>
+</div>
+</div>
+<div class="flex-grow space-y-5 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="text-on-surface-variant">Basic AI Personality</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="text-on-surface-variant">100 Messages / day</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-sm">block</span>
+<span>No Photo Generation</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-sm">block</span>
+<span>Standard Latency</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-full border border-outline-variant/30 font-bold hover:bg-white/5 transition-all">Current Plan</button>
+</div>
+<!-- Pro Plan (High Value) -->
+<div class="relative bg-surface-container-high rounded-xl p-8 flex flex-col h-full border border-primary/20 neon-glow scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary-container px-6 py-1 rounded-full text-on-primary text-xs font-black tracking-widest uppercase">
+                    Best Value
+                </div>
+<div class="mb-8">
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Pro</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-5xl font-extrabold text-on-surface">$19</span>
+<span class="text-on-surface-variant">/mo</span>
+</div>
+</div>
+<div class="flex-grow space-y-5 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-on-surface font-medium">Hyper-Realistic Synthesis</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-on-surface font-medium">Unlimited Messaging</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-on-surface font-medium">50 AI Images / day</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-on-surface font-medium">Priority Processing</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-on-surface font-medium">Custom Muse Styling</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Go Pro Now</button>
+</div>
+<!-- Plus Plan -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col h-full hover:bg-surface-container transition-all duration-300">
+<div class="mb-8">
+<h3 class="font-headline text-xl font-bold mb-2">Plus</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold">$9</span>
+<span class="text-on-surface-variant">/mo</span>
+</div>
+</div>
+<div class="flex-grow space-y-5 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="text-on-surface-variant">Enhanced Memory Core</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="text-on-surface-variant">1,000 Messages / day</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-sm">block</span>
+<span>Limited Image Gen</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="text-on-surface-variant">Ad-Free Experience</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-full border border-secondary/30 text-secondary font-bold hover:bg-secondary/5 transition-all">Upgrade to Plus</button>
+</div>
+</div>
+<!-- Asymmetric Feature Highlight -->
+<section class="mt-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+                    Exclusive Pro Feature
+                </div>
+<h2 class="font-headline text-4xl md:text-5xl font-bold leading-tight">
+                    The Infinite <br/>
+<span class="text-secondary">Neural Thread.</span>
+</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                    Pro users gain access to our proprietary Neural Threading technology, allowing your AI companion to remember every nuance, every inside joke, and every shared moment across months of interaction.
+                </p>
+<div class="flex gap-4">
+<div class="p-6 bg-surface-container-lowest rounded-xl flex-1">
+<span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h4 class="font-bold mb-2">Deep Memory</h4>
+<p class="text-xs text-on-surface-variant">Context retention up to 1M tokens for seamless storytelling.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl flex-1">
+<span class="material-symbols-outlined text-secondary mb-4" style="font-variation-settings: 'FILL' 1;">brush</span>
+<h4 class="font-bold mb-2">Visual Core</h4>
+<p class="text-xs text-on-surface-variant">High-fidelity image generation based on current conversation.</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative rounded-3xl overflow-hidden aspect-square border border-outline-variant/20 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="abstract digital waves of pink and blue light flowing through a dark void with micro-textured grain and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeIlF9D8UjEX1QzIfkpRzEBzGhn3x_JV7iNmGJ3-AOZRizPIAuOSa_4cCJTaN9WwA6_xC4sOoyMJO-3I42bOJKW5g2C96XgiNgS8gufBtgZLMXW3Mr45vmylxOGB50bscvBxEDR3NJpsnQ8cTXjjWwT5AVdEldkgfCX0z9RiiO5NxYXS3HDBgUX61mF333qVeL_SBKan5JyEIFFv-qyeN_qDlzrBpp0FtBJ6UrBRY_W6dQhyRsym7His6TJ1DkEpjZmGJd3GjVTgg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 p-6 glass-panel rounded-2xl border border-white/10">
+<p class="text-sm italic text-on-surface">"The memory of a thousand conversations, now accessible in an instant."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ / Small Detail -->
+<section class="mt-40 text-center">
+<h3 class="font-headline text-2xl font-bold mb-12">Common Inquiries</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-left max-w-4xl mx-auto">
+<div class="pb-6 border-b border-outline-variant/10">
+<h5 class="font-bold mb-2">Can I cancel anytime?</h5>
+<p class="text-on-surface-variant text-sm">Yes, you can manage your subscription in settings and cancel at any time. No strings attached.</p>
+</div>
+<div class="pb-6 border-b border-outline-variant/10">
+<h5 class="font-bold mb-2">How does data privacy work?</h5>
+<p class="text-on-surface-variant text-sm">All Neural Threading data is encrypted end-to-end. Your interactions are for your eyes only.</p>
+</div>
+<div class="pb-6 border-b border-outline-variant/10">
+<h5 class="font-bold mb-2">What is 'Muse Styling'?</h5>
+<p class="text-on-surface-variant text-sm">Exclusive Pro feature allowing you to define specific artistic aesthetics for your AI's avatar and image outputs.</p>
+</div>
+<div class="pb-6 border-b border-outline-variant/10">
+<h5 class="font-bold mb-2">Do you offer yearly plans?</h5>
+<p class="text-on-surface-variant text-sm">Annual billing is available at a 20% discount. Switch toggle in your billing dashboard.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-16 px-8 border-t border-outline-variant/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-xl font-black text-primary">Joi.AI</span>
+<p class="text-on-surface-variant text-xs">© 2024 Joi Digital Entities. All rights reserved.</p>
+</div>
+<div class="flex gap-8 text-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Security</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm">public</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

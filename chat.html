@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>darxtalkers.com | Chat with Aria</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffb0c9",
+                        "primary-container": "#ff4898",
+                        "secondary": "#9ccaff",
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#e2bdc7",
+                        "outline-variant": "#5a3f47",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .chat-scroll::-webkit-scrollbar { width: 4px; }
+        .chat-scroll { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 overflow-hidden">
+
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-8 h-20 border-b border-white/5">
+        <div class="flex items-center gap-12">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-primary">darxtalkers.com</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="index.html">Discover</a>
+                <a class="text-primary border-b-2 border-primary pb-1 text-sm font-medium" href="chat.html">My Muse</a>
+                <a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="pricing.html">Premium</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <button class="text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">
+                <span class="material-symbols-outlined">settings</span>
+            </button>
+                <a href="user_profile.html" class="h-10 w-10 rounded-full bg-surface-container-high border border-primary/20 overflow-hidden cursor-pointer hover:scale-105 transition-transform block">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChZo0NKgdRX80kBmULjfgKTTM8vTLvB0VLXuSvVon88pwXNmFEZvE-V1hBUG3geOm8tsyGKpBbSbBXoQETaAA8jMswzzy8hkGtN4GpsbZTd44Ew49r2aUcH37mxUvyVUKvdUpWKYHM0m8_8c0v8wA8pS2K89UZm_AjoGyvJlMg-QuiWOaFwuWDV2oOcDehCb5jAa9B1pwoHCkIUPYH80pnO8HWmpt3Icms3f5REP7EI7FAYwhjgRgXXd0832-sXihcN3mnPeI_fz8" alt="Profile">
+                </a>
+        </div>
+    </nav>
+
+    <div class="flex h-screen pt-20">
+        <!-- Sidebar -->
+        <aside class="hidden lg:flex flex-col h-full w-72 bg-[#0e0e0e] py-8 px-4 space-y-6 flex-shrink-0 border-r border-white/5">
+            <div class="flex items-center gap-3 px-2 mb-4">
+                <div class="w-10 h-10 rounded-xl neon-gradient flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                <div>
+                    <h3 class="text-primary font-bold font-headline leading-none">The Muse</h3>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Digital Companion</p>
+                </div>
+            </div>
+            
+            <nav class="flex-1 space-y-1">
+                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest px-2 mb-2">Navigation</div>
+                <a class="flex items-center gap-3 px-3 py-3 text-primary font-bold border-r-4 border-primary bg-primary/5 transition-all" href="chat.html">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                    <span class="text-sm">Recent Chats</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 text-gray-500 hover:text-secondary hover:bg-surface-container-high rounded-lg transition-all" href="index.html">
+                    <span class="material-symbols-outlined">explore</span>
+                    <span class="text-sm">Discover</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Chat Canvas -->
+        <main class="flex-1 flex flex-col relative bg-background overflow-hidden">
+            <!-- Chat Header -->
+            <header class="h-16 flex items-center justify-between px-8 bg-surface/40 border-b border-white/5 backdrop-blur-sm z-10 transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full border-2 border-primary/30 p-0.5">
+                            <img alt="Aria Avatar" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxjEJD9WG1uAfQwxCJVQFcoC5Xm7mmoQvGvLqyqR5A9TZgvy0UWg1FsJMsh9U9bQp7cr4tBhCoLAwtjO-oCTciVD7dNYVaRKneLr0QKH6jDOExpT5GVfx4LfM8VlqWskGopuUHoOvDMsMCZcTiLENTzU8VdjtH9usS3NCdqUDNCnSOFRY_62EB__Gl8oUYPfnd-TxR6jaXIm0znQMSlfNYqJHVtxCM9DiwrcsYAgFT_q5DmE452Up77SJBOHfXdhDW6TqdmF0CEc8">
+                        </div>
+                        <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-background rounded-full"></div>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-headline font-bold text-on-surface leading-none">Aria</h1>
+                        <p class="text-xs text-secondary font-medium mt-1">Virtual Assistant • Memory Synced</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Content -->
+            <section class="flex-1 overflow-y-auto chat-scroll px-4 md:px-8 py-8 space-y-8 flex flex-col">
+                <!-- AI Message -->
+                <div class="flex items-start gap-4 max-w-3xl animate-fade-in">
+                    <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
+                        <img alt="Aria Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNeUFvL522wMeReNooBmDnTKnn2dS42N1Ak9qi3-asts4X1OSlD06PqVTep7Bk5tU5fNZuo4hSjP-fuffyQyTbtSpMGH-dS_rN3ciG6oLrOb4givMDFQPoamtBQrHRpgtbuguMt0fPBxCqJnLy-v4s4EdcYOadmfSMb3izKZ5_Yj459XaLRPeVbZzbPkWJ8e0peq5fX4gwVhupjDjDOJwpSJsWBSpPac2h59y3wyqzxZDkCBag-FwQq75dBapbTJO38G3O08h3wFw">
+                    </div>
+                    <div class="space-y-2">
+                        <div class="glass-panel text-on-surface-variant p-5 rounded-2xl rounded-tl-sm border border-secondary/10 leading-relaxed text-md font-light shadow-xl">
+                            Welcome back. I was just reviewing the concept art for your latest project. Shall we continue our exploration of the narrative structure today?
+                        </div>
+                        <span class="text-[10px] text-gray-600 font-medium italic px-2">Aria • 11:43 PM</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input Area -->
+            <footer class="p-4 md:p-8 pt-2">
+                <div class="max-w-4xl mx-auto relative">
+                    <div class="glass-panel border border-white/10 rounded-2xl p-2 flex flex-col shadow-2xl">
+                        <div class="flex items-end gap-3 px-2 pb-2">
+                            <textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-gray-600 py-3 px-2 resize-none max-h-32 min-h-[44px]" placeholder="Tell Aria about your vision..."></textarea>
+                            <button class="w-12 h-12 rounded-xl neon-gradient text-on-surface flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all neon-glow">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-center text-gray-600 mt-3 font-medium uppercase tracking-widest">Neural Sync Mode Active</p>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Right Panel -->
+        <aside class="hidden xl:flex flex-col w-80 bg-surface border-l border-white/5 p-6 space-y-8 overflow-y-auto">
+            <div>
+                <h4 class="text-[10px] text-gray-600 font-bold uppercase tracking-widest mb-4">Mood Analysis</h4>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-end">
+                        <span class="text-xs text-on-surface-variant font-medium">Melancholy</span>
+                        <span class="text-[10px] text-secondary font-bold">82%</span>
+                    </div>
+                    <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-secondary w-[82%]"></div>
+                    </div>
+                    <div class="flex justify-between items-end">
+                        <span class="text-xs text-on-surface-variant font-medium">Ethereal</span>
+                        <span class="text-[10px] text-primary font-bold">45%</span>
+                    </div>
+                    <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-primary w-[45%]"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.initializeChat) window.initializeChat();
+        });
+    </script>
+</body>
+</html>

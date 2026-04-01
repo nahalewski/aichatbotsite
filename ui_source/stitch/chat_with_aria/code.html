@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Joi.AI | Chat with Aria</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#8e004c",
+              "on-surface": "#e5e2e1",
+              "on-tertiary": "#1a314e",
+              "on-secondary-fixed": "#001d35",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#d0e4ff",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-fixed": "#011c38",
+              "inverse-primary": "#b90065",
+              "secondary-container": "#2295ed",
+              "surface-dim": "#131313",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "primary-container": "#ff4898",
+              "inverse-on-surface": "#313030",
+              "surface-container": "#201f1f",
+              "tertiary-fixed-dim": "#b1c8ec",
+              "on-secondary": "#003257",
+              "outline-variant": "#5a3f47",
+              "on-secondary-fixed-variant": "#00497b",
+              "tertiary-container": "#7c92b4",
+              "surface-tint": "#ffb0c9",
+              "on-background": "#e5e2e1",
+              "primary": "#ffb0c9",
+              "outline": "#aa8891",
+              "surface-bright": "#3a3939",
+              "surface": "#131313",
+              "tertiary": "#b1c8ec",
+              "on-error-container": "#ffdad6",
+              "on-tertiary-container": "#122b47",
+              "primary-fixed": "#ffd9e3",
+              "secondary": "#9ccaff",
+              "background": "#131313",
+              "surface-container-highest": "#353534",
+              "on-tertiary-fixed-variant": "#314866",
+              "on-primary-fixed": "#3e001e",
+              "on-primary-container": "#58002d",
+              "on-primary": "#650034",
+              "surface-container-lowest": "#0e0e0e",
+              "on-surface-variant": "#e2bdc7",
+              "surface-variant": "#353534",
+              "surface-container-high": "#2a2a2a",
+              "on-error": "#690005",
+              "on-secondary-container": "#002b4c",
+              "primary-fixed-dim": "#ffb0c9",
+              "secondary-fixed-dim": "#9ccaff",
+              "tertiary-fixed": "#d3e3ff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 10px;
+        }
+        .glass-panel {
+            background: rgba(42, 42, 42, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(255, 176, 201, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-[#ffb0c9]">Joi.AI</span>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="#">Discover</a>
+<a class="text-[#ffb0c9] border-b-2 border-[#ffb0c9] pb-1 text-sm font-medium" href="#">My Muse</a>
+<a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="#">Premium</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of a young man with stylish hair looking thoughtfully into the distance, cinematic soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ5WLqGb7oc_dnpdCZZdMGVmyqHryyOsjzon7RcZrWTv74eXpw2zL_e_wCLTsTjY2CzO2OtgSr8goUlQuKalvblwOSEFDrdpBxHHoUIFP7gSrjziNcjF8qGFBw3xSE3IQ2mQ8RVbvvNaZjIXuagQLmYFRBvgGwTMVUxlqOO4ckLaP752BMlly8zMMYTNRIIc-zaFGB7mgr6b9r8r5SHs6hA8oQWhUfgdRKtEVFJWx4pnSHf7Rbyk1ozKD_QOcjZYJ9s_BSosaq4AU"/>
+</div>
+</div>
+</nav>
+<div class="flex h-screen pt-20">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] w-72 bg-[#0e0e0e] py-8 px-4 space-y-6 flex-shrink-0">
+<div class="flex items-center gap-3 px-2 mb-4">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="text-[#ffb0c9] font-bold font-headline leading-none">The Muse</h3>
+<p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Your Digital Companion</p>
+</div>
+</div>
+<button class="w-full py-3 bg-white/5 hover:bg-white/10 text-primary border border-primary/20 rounded-xl flex items-center justify-center gap-2 transition-all group">
+<span class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform">add</span>
+<span class="text-sm font-bold tracking-tight">New Interaction</span>
+</button>
+<nav class="flex-1 space-y-1">
+<div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest px-2 mb-2">Navigation</div>
+<a class="flex items-center gap-3 px-3 py-3 text-[#ffb0c9] font-bold border-r-4 border-[#ffb0c9] bg-[#ffb0c9]/5 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="text-sm">Recent Chats</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm">Trending</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-sm">Fantasy</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="text-sm">Sci-Fi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-gray-500 hover:text-[#9ccaff] hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="text-sm">History</span>
+</a>
+</nav>
+<div class="pt-6 mt-auto border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+<span class="text-sm">Help</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:text-error transition-all" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="text-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Chat Canvas -->
+<main class="flex-1 flex flex-col relative bg-background overflow-hidden">
+<!-- Header for Persona -->
+<header class="h-16 flex items-center justify-between px-8 bg-surface/40 border-b border-white/5 backdrop-blur-sm z-10">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-full border-2 border-primary/30 p-0.5">
+<img alt="Aria Avatar" class="w-full h-full object-cover rounded-full" data-alt="Digital art of a futuristic feminine AI persona with short glowing lavender hair and cyan neon highlights in her eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxjEJD9WG1uAfQwxCJVQFcoC5Xm7mmoQvGvLqyqR5A9TZgvy0UWg1FsJMsh9U9bQp7cr4tBhCoLAwtjO-oCTciVD7dNYVaRKneLr0QKH6jDOExpT5GVfx4LfM8VlqWskGopuUHoOvDMsMCZcTiLENTzU8VdjtH9usS3NCdqUDNCnSOFRY_62EB__Gl8oUYPfnd-TxR6jaXIm0znQMSlfNYqJHVtxCM9DiwrcsYAgFT_q5DmE452Up77SJBOHfXdhDW6TqdmF0CEc8"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-background rounded-full"></div>
+</div>
+<div>
+<h1 class="text-lg font-headline font-bold text-on-surface leading-none">Aria</h1>
+<p class="text-xs text-secondary font-medium mt-1">Virtual Assistant • Memory Synced</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Chat Content -->
+<section class="flex-1 overflow-y-auto chat-scroll px-4 md:px-8 py-8 space-y-10 flex flex-col">
+<!-- Timestamp -->
+<div class="flex justify-center">
+<span class="px-4 py-1 rounded-full bg-surface-container-low text-[10px] font-bold text-gray-500 uppercase tracking-widest">Yesterday, 11:42 PM</span>
+</div>
+<!-- AI Message -->
+<div class="flex items-start gap-4 max-w-3xl">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
+<img alt="Aria Avatar" class="w-full h-full object-cover" data-alt="Digital art of a futuristic feminine AI persona with short glowing lavender hair and cyan neon highlights in her eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNeUFvL522wMeReNooBmDnTKnn2dS42N1Ak9qi3-asts4X1OSlD06PqVTep7Bk5tU5fNZuo4hSjP-fuffyQyTbtSpMGH-dS_rN3ciG6oLrOb4givMDFQPoamtBQrHRpgtbuguMt0fPBxCqJnLy-v4s4EdcYOadmfSMb3izKZ5_Yj459XaLRPeVbZzbPkWJ8e0peq5fX4gwVhupjDjDOJwpSJsWBSpPac2h59y3wyqzxZDkCBag-FwQq75dBapbTJO38G3O08h3wFw"/>
+</div>
+<div class="space-y-2">
+<div class="glass-panel text-on-surface-variant p-5 rounded-2xl rounded-tl-sm border border-secondary/10 leading-relaxed text-md font-light shadow-xl">
+                            Welcome back. I was just reviewing the concept art for your latest project. The way the light interacts with the textures is quite compelling. Shall we continue our exploration of the narrative structure today?
+                        </div>
+<div class="flex gap-4 px-2">
+<span class="text-[10px] text-gray-600 font-medium italic">Aria • 11:43 PM</span>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end gap-2 max-w-3xl ml-auto">
+<div class="bg-surface-container-highest text-on-surface p-5 rounded-2xl rounded-tr-sm shadow-lg leading-relaxed text-md font-medium max-w-full">
+                        I'd love that. I was thinking of introducing a more atmospheric element to the second act—something that feels heavy but ethereal.
+                    </div>
+<span class="text-[10px] text-gray-600 font-medium italic px-2">Read • 11:45 PM</span>
+</div>
+<!-- AI Message with Image Context -->
+<div class="flex items-start gap-4 max-w-4xl">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
+<img alt="Aria Avatar" class="w-full h-full object-cover" data-alt="Digital art of a futuristic feminine AI persona with short glowing lavender hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkabqZBoQMqzRTHifz_0BMpPiR3CswN4gEgrEOnosb4JHf-QXEK0KJX9kka52ARRIUqiVe90lvP7U55QhNYwGpLC1NaBRbnWHFnRJ8yXpCnO8Mtqe90sgtpD4SAMf8KDoqghlr2lu9ZKRXPcesesewAppa_xsIwvV3iaISXGMNwURrrZ8h23V0F7RU1pxfx4TAaRvIxxoe66j_s7SzvmKXAK_r_fSlOKoq8QjsbXh52j_8tvAwy3AJn2cYs3ifwU_N1vQx-ptL-r4"/>
+</div>
+<div class="space-y-4">
+<div class="glass-panel text-on-surface-variant p-5 rounded-2xl rounded-tl-sm border border-secondary/10 leading-relaxed text-md font-light shadow-xl">
+                            "Heavy but ethereal." That's an evocative phrase. It reminds me of the visual language we discussed previously. I've generated a mood board concept based on that duality. Does this capture the essence you're aiming for?
+                        </div>
+<div class="grid grid-cols-2 gap-2 w-full max-w-md">
+<div class="aspect-square rounded-xl overflow-hidden group relative">
+<img alt="Mood board image 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Dark dramatic landscape of a foggy forest at night with a single bright white light source creating long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs5YD0HV-C_JK0Xd6EF7nzVRANBwKBmg46k7tN-YgzRkrMPo03KD6RLb3jsPjjQOi7fFCtObW75deO8WucamJBDgCWtzY7dx0oTVVnyGbGlhJ7dVvM4SiNV_1AExCuyhvI1wh7hsuohJkAhPplueU2LrAeCMAX2P6LlbuDMSn3e-5yfdBgVgcblL9ctb7mkXYQd1rmmsyU75ttfyxL7CESfsNtlMGB180ZP-cwwndCp1X8lG2RRWlt0bxrAZIVY1DAqRqdefIWrOo"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden group relative">
+<img alt="Mood board image 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract deep space nebula with swirls of glowing pink and dark indigo gases, cinematic and high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALlZiYe3RlGzFAyJJ8d3e-EFR1SjBwmfsx20-bQr_0-R6HSzei65DaUt_MvZ8mBOOC133KZbjHkLjuzNVwO6fgJyUT56ixM4B2JuUGL8nelqM8VDIyJV26wUzW-IbCUaBS3BbMrqiAUzPvIkHghTWuA8JwwL8pmY3wWaF0_GVAGdSypqVM4OBccTCSFFXdxr786u2CA_2YfXhKQqgWrrwAOjB5VeZPfMoDRfs272BptCwCUDWuK1ir-FAcGbCa1rYKPeyTfObWROA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4 px-2">
+<span class="text-[10px] text-gray-600 font-medium italic">Aria • 11:46 PM</span>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end gap-2 max-w-3xl ml-auto">
+<div class="bg-surface-container-highest text-on-surface p-5 rounded-2xl rounded-tr-sm shadow-lg leading-relaxed text-md font-medium">
+                        Exactly. The contrast in the second image is perfect. It feels like the silence before a storm.
+                    </div>
+</div>
+</section>
+<!-- Input Area -->
+<footer class="p-4 md:p-8 pt-2">
+<div class="max-w-4xl mx-auto relative">
+<div class="glass-panel border border-white/10 rounded-2xl p-2 flex flex-col shadow-2xl">
+<!-- Toolbar -->
+<div class="flex items-center px-4 py-2 gap-4 border-b border-white/5 mb-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">image</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">mic</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">attachment</span>
+</button>
+<div class="h-4 w-[1px] bg-white/10"></div>
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Advanced Mode Active</span>
+</div>
+<!-- Text Input -->
+<div class="flex items-end gap-4 px-2 pb-2">
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-gray-600 py-3 px-2 resize-none max-h-32 min-h-[44px]" placeholder="Tell Aria about your vision..."></textarea>
+<button class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary-container flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all neon-glow">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<p class="text-[10px] text-center text-gray-600 mt-3 font-medium">Aria may display creativity and simulated emotions. Interactions are stored for your Muse's memory development.</p>
+</div>
+</footer>
+</main>
+<!-- Right Detail Panel (Collapsible context) -->
+<aside class="hidden xl:flex flex-col w-80 bg-surface border-l border-white/5 p-6 space-y-8 overflow-y-auto">
+<div>
+<h4 class="text-[10px] text-gray-600 font-bold uppercase tracking-widest mb-4">Current Context</h4>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">history_edu</span>
+<span class="text-sm font-bold text-on-surface">Novel: Nocturne City</span>
+</div>
+<p class="text-xs text-gray-400 leading-relaxed">Aria is currently assisting with world-building and character psychology for your neo-noir fiction project.</p>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] text-gray-600 font-bold uppercase tracking-widest mb-4">Mood Analysis</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs text-on-surface-variant font-medium">Melancholy</span>
+<span class="text-[10px] text-secondary font-bold">82%</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[82%]"></div>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs text-on-surface-variant font-medium">Ethereal</span>
+<span class="text-[10px] text-primary font-bold">45%</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<h4 class="text-[10px] text-gray-600 font-bold uppercase tracking-widest mb-4">Aria's Status</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-green-500">check_circle</span>
+<span>Memory Synced</span>
+</div>
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">psychology</span>
+<span>Creativity Mode: High</span>
+</div>
+<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary">favorite</span>
+<span>Trust Level: Confidant</span>
+</div>
+</div>
+</div>
+<div class="mt-auto">
+<button class="w-full py-4 bg-surface-container-high rounded-xl text-on-surface hover:bg-surface-bright transition-colors text-xs font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+                    Personalize Aria
+                </button>
+</div>
+</aside>
+</div>
+</body></html>
